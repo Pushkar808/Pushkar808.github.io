@@ -12,14 +12,15 @@
     <div class="container-fluid ">
         <div class="row">
             <!-- to-do-list-card -->
-            <div class="col-sm-12 col-lg-6 card" id="todo-container">
+            <div class="col-sm-12 col-lg-5 card" id="todo-container">
                 <div class="card-header ">
                     <!--to do list form-->
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Type your todo List">
+                        <form id="input-field-form" action="#" onsubmit="ok()">
+                        <input type="text" class="form-control" placeholder="Type your todo List" >
                         <i class="fa-solid fa-list-check glyphicon"></i>
                         <i class="fas fa-plus glyphicon" id="plus-icon"></i><!--show only when we are writing something-->
-                        
+                    </form>
                     </div>
                     <div class="container text-muted" id="header-buttons">
                         <i class="fa-solid fa-check-double"></i>
@@ -31,7 +32,12 @@
                 <!--header ends-->
                 <hr>
                 <div class="card-body">
-                   
+                   <div id="todo-item">
+                    <input type="radio" id="todo-radio" >
+                    <p id="todo-text">this is sample text</p>
+                    <i class="glyphicon fas fa-times-circle"></i>
+                    <hr>
+                   </div>
                 </div>
                 <div class="card-footer text-muted">
                     2 days ago
