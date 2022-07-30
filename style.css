@@ -1,0 +1,60 @@
+body {
+    background-color: #d4d6dd;
+}
+
+
+#todo-container {
+    background-color: white !important;
+    padding: 10px;
+}
+
+.form-group {
+    display: inline;
+    /*by default form group is block*/
+}
+
+.form-control {
+    width: 500px;
+    height: 50px;
+    padding: 0px 70px;
+    font-size: 20px;
+}
+#plus-icon{
+    display:none;
+}
+
+
+/*icons on text bar*/
+.glyphicon {
+    position: absolute;
+    padding: 10px;
+    
+}
+.fa-list-check{
+    top: 15px;
+    left: 30px;
+    font-size: 25px;
+}
+
+.fa-check-double {
+    display: inline;
+    right: 0;
+}
+.fa-plus{
+    top: 15px;
+    right:200px;
+    font-size: 20px;
+}
+#header-buttons {
+    width: 500px;
+    padding: 5px;
+    margin: 2px;
+    margin-top: 1rem;
+}
+
+/*clear completed button*/
+#clearcompleted {
+    text-decoration: none !important;
+    text-align: right;
+    float: right;
+}
