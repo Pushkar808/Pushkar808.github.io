@@ -66,6 +66,8 @@ hr{
 /* list item style */
 #todo-item{
     position: relative;
+    /* animation-name: example;
+    animation-duration: 4s; */
 }
 #todo-text{
     display: inline-block;
@@ -85,3 +87,28 @@ hr{
     right:0;
     font-size: 25px;
 }
+/*delete button */
+#delete-button{
+    text-decoration:none;
+    color:black;
+    display:none;
+    
+}
+/*showing delete button on hover on list*/
+#todo-item:hover>#delete-button{
+   display:block;
+}
+#delete-button:hover{
+    color:rgb(59, 59, 59);
+}
+/*delete animation*/
+@keyframes delete {
+    0%   {left:0px;}
+    100% {left:-500px;}
+  }
+
+/*footer */
+#task-left{
+    margin:0px;
+}
+
