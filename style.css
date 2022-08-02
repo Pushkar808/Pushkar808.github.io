@@ -74,7 +74,7 @@ hr{
     font-size: 25px;
     padding: 20px 40px;
 }
-#todo-radio{
+#todo-checkbox{
     position:absolute;
     padding:10px;
     top:25%;
