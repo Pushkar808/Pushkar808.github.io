@@ -108,7 +108,22 @@ hr{
   }
 
 /*footer */
+#tasks{
+    display:inline;
+}
 #task-left{
+    display:inline;
     margin:0px;
 }
-
+#Read_Unread{
+    display: inline-block;
+    left:10%;
+    float: right;
+}
+.text-secondary{
+    color:black;
+}
+#Read_Unread a{
+    text-decoration: none;
+    cursor: pointer;
+}

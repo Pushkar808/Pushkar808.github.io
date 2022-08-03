@@ -31,25 +31,39 @@ function submit_to_do() {
   list_item.innerHTML += '<div id="todo-item" class="q' + uniq_number + '"> <input type="checkbox" id="todo-checkbox" name="checked"><p id="todo-text">' + value + '</p><a href="#" id="delete-button" onclick="delete_button(' + uniq_number + ')"><i class="glyphicon fas fa-times-circle"></i></a><hr></div>';
   task_remaining.innerHTML = list_count + " task left";
 }
-
-//clear completed EventListener
-document.getElementById('clearcompleted').addEventListener('click', () => {
-  if (list_count != 0) {
-    const Tasks = document.querySelectorAll('#todo-item');
-    for (let i = 0; i < Tasks.length; i++) {
+//function to return all the tasks that are checked
+function getCompletedTask(){
+  var CompletedTasks=[];
+  const Tasks = document.querySelectorAll('#todo-item');
+  for (let i = 0; i < Tasks.length; i++) {
       //getting checkbox of a particular todo-item i.e #todo-item class>#todo-checkbox
       let checkedtask = document.querySelector("." + Tasks[i].className + " > #todo-checkbox");
       if (checkedtask.checked)//getting tasks that are only completed 
       {
-        Tasks[i].remove();
-        decrease_tasks();
+        CompletedTasks.push(Tasks[i]);
       }
     }
+    return CompletedTasks;
+}
+//clear completed EventListener
+document.getElementById('clearcompleted').addEventListener('click', () => {
+  if (list_count != 0) {
+    let CompletedTask= getCompletedTask();//getting completed tasks array
+      for(let i=0;i<CompletedTask.length;i++){
+        CompletedTask[i].remove();
+        decrease_tasks();
+      }
   }
   else
     alert("There is no task left to delete");
 });
 
+//Complete  all tasks button on header
+document.getElementById('completeall').addEventListener('click',()=>{
+  let checkbox=document.querySelectorAll('#todo-checkbox');
+  for(let i=0;i<checkbox.length;i++)
+    checkbox[i].checked=true;
+})
 
 
 //deleting  animation effect
@@ -93,3 +107,37 @@ function decrease_tasks() {
   list_count--;
   task_remaining.innerHTML = list_count + " task left";
 }
+
+
+/*Footer Button of All,Unread,Completed event Listener*/
+const All_button=document.getElementById('all');
+const Uncompleted=document.getElementById('uncompleted');
+const Completed=document.getElementById('completed');
+//All button click
+All_button.addEventListener('click',()=>{
+  Uncompleted.className="text-muted";
+  Completed.className="text-muted";
+  All_button.className="text-primary";
+  let getCheckedTask=getCompletedTask();
+  //i was here 
+});
+
+
+// Uncompleted.addEventListener('click',()=>{
+//   Uncompleted.className="text-primary";
+//   Completed.className="text-muted";
+//   All_button.className="text-muted";
+//   // var getCheckedTask=
+
+
+
+// });
+// Completed.addEventListener('click',()=>{
+//   Uncompleted.className="text-muted";
+//   Completed.className="text-primary";
+//   All_button.className="text-muted";
+//   // var getCheckedTask
+
+
+
+// });
