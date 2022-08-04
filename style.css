@@ -1,10 +1,11 @@
 body {
     background-color: #d4d6dd;
 }
-.container{
+/*to center the div use this*/
+/* .container{
     margin-left: 25%;
     margin-top: 10%;
-}
+} */
 
 #todo-container {
     background-color: white !important;
