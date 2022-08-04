@@ -11,6 +11,7 @@ input_box[0].addEventListener('focusout', () => {
 });
 
 const task_remaining = document.getElementById('task-left');
+
 /*function that runs after you submit your list*/
 function submit_to_do() {
   const list_item = document.getElementsByClassName('card-body')[0];
@@ -47,13 +48,15 @@ function getCompletedTask(){
 }
 //clear completed EventListener
 document.getElementById('clearcompleted').addEventListener('click', () => {
-  if (list_count != 0) {
-    let CompletedTask= getCompletedTask();//getting completed tasks array
+  let CompletedTask= getCompletedTask();//getting completed tasks array
+  if (CompletedTask.length != 0) {
       for(let i=0;i<CompletedTask.length;i++){
         CompletedTask[i].remove();
         decrease_tasks();
       }
   }
+  else if(CompletedTask.length == 0)
+    alert("There is no completed task in the list");
   else
     alert("There is no task left to delete");
 });

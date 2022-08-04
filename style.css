@@ -1,7 +1,10 @@
 body {
     background-color: #d4d6dd;
 }
-
+.container{
+    margin-left: 25%;
+    margin-top: 10%;
+}
 
 #todo-container {
     background-color: white !important;
