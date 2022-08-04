@@ -110,34 +110,56 @@ function decrease_tasks() {
 
 
 /*Footer Button of All,Unread,Completed event Listener*/
+var all_elements;
 const All_button=document.getElementById('all');
 const Uncompleted=document.getElementById('uncompleted');
 const Completed=document.getElementById('completed');
 //All button click
 All_button.addEventListener('click',()=>{
+  all_elements=document.querySelectorAll('#todo-item');
   Uncompleted.className="text-muted";
   Completed.className="text-muted";
   All_button.className="text-primary";
-  let getCheckedTask=getCompletedTask();
-  //i was here 
+  //showing all the elments setted by uncompleted or completed
+  for(let i=0;i<all_elements.length;i++){
+    all_elements[i].style.display="block";
+  }
 });
 
+/*Uncompleted tasks button*/
+Uncompleted.addEventListener('click',()=>{
+  //setting this global var so that it can be used by All after hiding required item
+  all_elements=document.querySelectorAll('#todo-item');
+  Uncompleted.className="text-primary";
+  Completed.className="text-muted";
+  All_button.className="text-muted";
+  //saving checked boxes in var
+  let getCheckedTask=getCompletedTask();
+  //showing all elements first
+  for(let i=0;i<all_elements.length;i++){
+    all_elements[i].style.display="block";
+  }
+  //hiding only checked boxes
+  for(let i=0;i<getCheckedTask.length;i++){
+      getCheckedTask[i].style.display="none";
+  }
+});
 
-// Uncompleted.addEventListener('click',()=>{
-//   Uncompleted.className="text-primary";
-//   Completed.className="text-muted";
-//   All_button.className="text-muted";
-//   // var getCheckedTask=
-
-
-
-// });
-// Completed.addEventListener('click',()=>{
-//   Uncompleted.className="text-muted";
-//   Completed.className="text-primary";
-//   All_button.className="text-muted";
-//   // var getCheckedTask
-
-
-
-// });
+//Completed task button
+Completed.addEventListener('click',()=>{
+  //setting this global var so that it can be used by All after hiding required item
+  all_elements=document.querySelectorAll('#todo-item');
+  
+  Uncompleted.className="text-muted";
+  Completed.className="text-primary";
+  All_button.className="text-muted";
+  let getCheckedTask=getCompletedTask();//saving checked boxes in var
+//hiding all elements first
+  for(let i=0;i<all_elements.length;i++){
+    all_elements[i].style.display="none";
+  }
+  //showing only checked boxes
+  for(let i=0;i<getCheckedTask.length;i++){
+      getCheckedTask[i].style.display="block";
+  }
+});

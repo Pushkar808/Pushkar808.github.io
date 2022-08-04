@@ -119,9 +119,12 @@ hr{
     display: inline-block;
     left:10%;
     float: right;
+    
 }
+/*this class will be added from JS*/
 .text-secondary{
     color:black;
+    font-weight: bold;
 }
 #Read_Unread a{
     text-decoration: none;
